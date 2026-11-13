@@ -1,19 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="20dp">
 
+    <!-- 这就是你要的姓名+学号，强制显示在左上角 -->
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="黄丽娜2024110111"
+        android:textColor="@color/text_red"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- 下面是一个垂直居中的子容器，放你的计算器组件 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_num1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入第一个数字"
+            android:textColor="@color/text_red"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/et_num2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入第二个数字"
+            android:textColor="@color/text_red"
+            android:inputType="numberDecimal"
+            android:layout_marginTop="10dp" />
+
+        <RadioGroup
+            android:id="@+id/rg_operator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <RadioButton android:id="@+id/rb_add" android:text="+" android:checked="true" android:textColor="@color/text_red"/>
+            <RadioButton android:id="@+id/rb_sub" android:text="-" android:textColor="@color/text_red"/>
+            <RadioButton android:id="@+id/rb_mul" android:text="*" android:textColor="@color/text_red"/>
+            <RadioButton android:id="@+id/rb_div" android:text="/" android:textColor="@color/text_red"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="计算"
+            android:textColor="@color/text_red"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="结果将在这里显示"
+            android:textSize="20sp"
+            android:textColor="@color/text_red"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查看历史记录"
+            android:textColor="@color/text_red"
+            android:textSize="18sp"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginTop="40dp"/>
+    </LinearLayout>
+</LinearLayout>
